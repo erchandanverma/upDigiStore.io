@@ -1,0 +1,10 @@
+# Default index file ko set karein
+DirectoryIndex index.php
+
+# Rewrite engine ko on karein
+RewriteEngine On
+
+# Agar koi URL directory nahi hai, aur uska .php file exist karta hai to extension ko hide karein
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteCond %{REQUEST_FILENAME}.php -f
+RewriteRule ^([^/]+)$ $1.php [L]
